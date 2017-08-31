@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function GameObject(x, y) {
+
+            this.x = x;
+            this.y = y;
+
+            this.showInfo = function () {
+
+                alert(this.x + "," + this.y + "," + this.speed);
+            }
+        }
+
+        function Palla(x, y, speed) {
+
+            GameObject.call(this, x, y);
+            this.speed = speed;
+        }
+
+        //eredita da GameObject
+        Palla.prototype = Object.create(GameObject.prototype);
+
+        //reimposta il constructor
+        Palla.prototype.constructor = Palla;
+
+        p1 = new Palla(10, 150, 30);
+        p2 = new Palla(20, 200, 1);
+        p3 = new Palla(30, 300, 23);
+        p1.showInfo();
+        p2.showInfo();
+        p3.showInfo();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
